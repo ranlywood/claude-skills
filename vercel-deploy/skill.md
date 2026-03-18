@@ -13,6 +13,27 @@ description: Deploy to Vercel. Auto-activates for any Vercel task — editing a 
 
 ---
 
+## Auth flow (before anything else)
+
+Before deploying, check if Vercel CLI is authorized:
+
+```bash
+vercel whoami 2>&1
+```
+
+**If not authorized:**
+
+→ In Claude Code: run `vercel login` — browser opens, user logs in, done.
+
+→ In OpenClaw or any other agent without a browser:
+  1. Tell the user: "Go to vercel.com/account/tokens, create a token, and send it to me."
+  2. Once received, run: `vercel login --token <token>`
+  3. Confirm with `vercel whoami` — then proceed.
+
+Never proceed to deploy without confirmed authorization.
+
+---
+
 ## Pre-deploy checklist (required)
 
 ### 1. Make ALL changes first
