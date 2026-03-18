@@ -10,21 +10,20 @@ Compatible with Claude Code, Cursor, Windsurf, and other agents that support the
 
 ## Skills in this repo
 
-| Skill | Description |
-|---|---|
-| [vercel-deploy](./vercel-deploy/skill.md) | Deploy to Vercel — pre-deploy checklist, one-deploy rule, SSO removal, anti-patterns |
+| Skill | Description | Install |
+|---|---|---|
+| [vercel-deploy.md](./vercel-deploy.md) | Deploy to Vercel — auth flow, first deploy, one-deploy rule, SSO removal, anti-patterns | `clawhub install vercel-deploy-pro` |
 
 ## Installation
 
+**Via ClawHub (one command):**
 ```bash
-# Clone the repo
-git clone https://github.com/ranlywood/claude-skills.git
-
-# Copy a skill to your Claude skills folder
-cp -r claude-skills/vercel-deploy ~/.claude/skills/
+clawhub install vercel-deploy-pro
 ```
 
-Or just copy the `skill.md` file manually.
+**Manually:**
+1. Copy [vercel-deploy.md](./vercel-deploy.md)
+2. Save to `~/.claude/skills/vercel-deploy/skill.md`
 
 ## Contributing
 
