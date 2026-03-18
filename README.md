@@ -1,30 +1,29 @@
 # claude-skills
 
-A collection of skills for Claude Code — reusable agent instructions that auto-activate in the right context.
+Vercel deploy skill for Claude Code and OpenClaw.
 
-## What are skills?
+## Install
 
-Skills are modular `.md` files that teach Claude Code how to handle specific workflows. Drop them into `~/.claude/skills/<skill-name>/skill.md` and Claude picks them up automatically.
-
-Compatible with Claude Code, Cursor, Windsurf, and other agents that support the Agent Skills open standard.
-
-## Skills in this repo
-
-| Skill | Description | Install |
-|---|---|---|
-| [vercel-deploy.md](./vercel-deploy.md) | Deploy to Vercel — auth flow, first deploy, one-deploy rule, SSO removal, anti-patterns | `clawhub install vercel-deploy-pro` |
-
-## Installation
-
-**Via ClawHub (one command):**
+**Claude Code** — paste in terminal:
 ```bash
-clawhub install vercel-deploy-pro
+mkdir -p ~/.claude/skills/vercel-deploy && curl -sL https://raw.githubusercontent.com/ranlywood/claude-skills/main/vercel-deploy.md -o ~/.claude/skills/vercel-deploy/skill.md
 ```
 
-**Manually:**
-1. Copy [vercel-deploy.md](./vercel-deploy.md)
-2. Save to `~/.claude/skills/vercel-deploy/skill.md`
+**OpenClaw** — send this link to your bot:
+```
+https://clawhub.ai/ranlywood/vercel-deploy-pro
+```
 
-## Contributing
+## What it does
 
-PRs welcome. Keep skills universal — no personal tokens, IDs, or project-specific references.
+After install, just say "deploy my landing" or "create a landing about X" — the agent handles the rest:
+1. Checks Vercel auth (guides you through it if missing)
+2. Creates HTML
+3. Deploys
+4. Returns the public URL
+
+## Skills
+
+| File | Description |
+|---|---|
+| [vercel-deploy.md](./vercel-deploy.md) | Vercel deploy — auth flow, first deploy, one-deploy rule, SSO removal |
