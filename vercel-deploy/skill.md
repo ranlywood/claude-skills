@@ -87,6 +87,18 @@ Find your values here:
 | Didn't verify after deploy | `curl` on the live URL after every deploy |
 | Started with partial understanding (didn't read source doc fully) | Read source fully first, make a diff, then apply all edits |
 
+## Final output (always)
+
+After a successful deploy, the last message to the user must be the public URL — nothing else:
+
+```
+✅ https://<alias>.vercel.app
+```
+
+No extra explanation. Just the link.
+
+---
+
 ## Gotchas
 - `--name` is deprecated — don't use it
 - `vercel project rm` doesn't support `--yes` — interactive only
