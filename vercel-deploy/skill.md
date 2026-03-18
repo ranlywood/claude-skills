@@ -15,22 +15,32 @@ description: Deploy to Vercel. Auto-activates for any Vercel task — editing a 
 
 ## Auth flow (before anything else)
 
-Before deploying, check if Vercel CLI is authorized:
+Check authorization once:
 
 ```bash
 vercel whoami 2>&1
 ```
 
-**If not authorized:**
+**Authorized → proceed.**
 
-→ In Claude Code: run `vercel login` — browser opens, user logs in, done.
+**Not authorized → one-time setup:**
 
-→ In OpenClaw or any other agent without a browser:
-  1. Tell the user: "Go to vercel.com/account/tokens, create a token, and send it to me."
-  2. Once received, run: `vercel login --token <token>`
-  3. Confirm with `vercel whoami` — then proceed.
+1. Tell the user exactly this:
+   > "Open vercel.com/account/tokens → Create Token → copy it and send it here. You only need to do this once."
 
-Never proceed to deploy without confirmed authorization.
+2. Once received, export and verify:
+```bash
+export VERCEL_TOKEN=<token>
+vercel whoami
+```
+
+3. If confirmed → save token to env permanently so user is never asked again:
+```bash
+# Save to shell profile so it persists
+echo 'export VERCEL_TOKEN=<token>' >> ~/.zshrc && source ~/.zshrc
+```
+
+After this, all deploys use `VERCEL_TOKEN` automatically — no login needed ever again.
 
 ---
 
