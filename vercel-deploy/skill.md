@@ -75,10 +75,10 @@ vercel deploy --yes --prod 2>&1 | grep -E "https://|Error"
 
 # If custom alias was not assigned automatically — set it manually:
 # For personal accounts (no --scope needed):
-vercel alias <deploy-url> <alias>.vercel.app
+vercel alias set <deploy-url> <alias>.vercel.app
 
 # For team accounts only:
-vercel alias <deploy-url> <alias>.vercel.app --scope YOUR_TEAM_SCOPE
+vercel alias set <deploy-url> <alias>.vercel.app --scope YOUR_TEAM_SCOPE
 ```
 
 Note: `script -q /dev/null` suppresses interactive prompts on macOS but breaks on Linux. Use plain `vercel deploy` instead — `--yes` flag handles prompts cross-platform.
